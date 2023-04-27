@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="single">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="single-content">
+                    <h3 class="'text-center my-3">Creer un Article</h3>
+                    
+                    <form class=" g-3 needs-validation"  action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+    
+                        <div class="col-12 my-2">
+                          <label for="yourUsername" class="form-label">Image de Couverture</label>
+                          <div class="input-group has-validation">
+                            <input type="file" name="file"  class="form-control"  required>
+                            <div class="invalid-feedback">Choisissez une image de couverture.</div>
+                          </div>
+                        </div>
+    
+                        <div class="col-12 my-2">
+                          <label for="yourPassword" class="form-label">Titre</label>
+                          <input type="text" name="titre"  class="form-control" id="yourPassword" required>
+                          <div class="invalid-feedback">Entrez un Titre!</div>
+                        </div>
+
+                        <div class="col-12 my-2">
+                            <label for="yourPassword" class="form-label">Categorie</label>
+                            <select  name="categorie"  class="form-control" id="yourPassword" required>
+                                {% for categorie in categories %}
+                                <option value='{{ categorie.id }}'>
+                                    {{ categorie.nom }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                            <div class="invalid-feedback">Choisissez une Categorie!</div>
+                          </div>
+
+                        
+                            
+                            
+
+                        <div class="page-wrapper box-content">
+                            <label for="yourPassword" class="form-label">Contenu</label>
+                            <textarea class="content" name="contenu"></textarea>
+                
+                        </div>
+                
+                        <script>
+                        $(document).ready(function() {
+                            $('.content').richText();
+                        });
+                        </script>
+
+
+
+                        
+    
+    
+                        <div class="col-12">
+                          <button class="btn btn-primary w-20 my-2" type="submit">Enregistrer</button>
+                        </div>
+    
+                      </form>
+
+                </div>
+                <div class="single-tags">
+                    {% for tag in tags %}
+                    <a href="">{{ tag.nom }}</a>
+                    {% endfor %}
+                    <!--<a href="">National</a>
+                    <a href="">International</a>
+                    <a href="">Economics</a>
+                    <a href="">Politics</a>
+                    <a href="">Lifestyle</a>
+                    <a href="">Technology</a>
+                    <a href="">Trades</a>-->
+                </div>
+                
+                
+
+                <div class="single-comment">
+                    
+                    <ul class="comment-list">
+                        
+                        <!--<li class="comment-item">
+                            <div class="comment-body">
+                                <div class="comment-img">
+                                    <img src="img/user.jpg" />
+                                </div>
+                                <div class="comment-text">
+                                    <h3><a href="">Josh Dunn</a></h3>
+                                    <p><span>01 Jan 2045 at 12:00pm</span></p>
+                                    <p>
+                                        Lorem ipsum dolor sit amet elit. Integer lorem augue purus mollis sapien, non eros leo in nunc. Donec a nulla vel turpis tempor ac vel justo. In hac platea dictumst. 
+                                    </p>
+                                    <a class="btn" href="">Reply</a>
+                                </div>
+                            </div>
+                            <ul class="comment-child">
+                                <li class="comment-item">
+                                    <div class="comment-body">
+                                        <div class="comment-img">
+                                            <img src="img/user.jpg" />
+                                        </div>
+                                        <div class="comment-text">
+                                            <h3><a href="">Josh Dunn</a></h3>
+                                            <p><span>01 Jan 2045 at 12:00pm</span></p>
+                                            <p>
+                                                Lorem ipsum dolor sit amet elit. Integer lorem augue purus mollis sapien, non eros leo in nunc. Donec a nulla vel turpis tempor ac vel justo. In hac platea dictumst. 
+                                            </p>
+                                            <a class="btn" href="">Reply</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>-->
+                    </ul>
+                </div>
+                
+            </div>
+
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="sidebar-widget">
+                        <div class="search-widget">
+                            <form action="{% url 'blog' %}">
+                                <input name='query' class="form-control" type="text" placeholder="Chercher un Article">
+                                <button class="btn"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h2 class="widget-title">Article Recent</h2>
+                        <div class="recent-post">
+                            {% for art in article_recent %}
+                            <div class="post-item">
+                                <div class="post-img">
+                                    <img src="/media/{{ art.poster }}" />
+                                </div>
+                                <div class="post-text">
+                                    <a href="{% url 'single-blog' art.id %}">{{ art.titre }}</a>
+                                    <div class="post-meta">
+                                        <p>Par<a href="">{{ art.auteur }}</a></p>
+                                        <p>In<a href="">Volontaire</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            
+                        </div>
+                    </div>
+
+                    
+
+                    
+                                
+                                
+                                
+                    <div class="sidebar-widget">
+                        <h2 class="widget-title">Article Populaire</h2>
+                            
+                            <div class="tab-content">
+                                <div id="popular" class="container tab-pane active">
+                                    {% for art in article_populaire %}
+                                    <div class="post-item">
+                                        <div class="post-img">
+                                            <img src="/media/{{ art.poster }}" />
+                                        </div>
+                                        <div class="post-text">
+                                            <a href="{% url 'single-blog' art.id %}">{{ art.titre }}</a>
+                                            <div class="post-meta">
+                                                <p><a href="">{{ art.categorie.nom }}</a></p>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    {% endfor %}
+                                </div>
+
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="sidebar-widget">
+                        <h2 class="widget-title">Categories</h2>
+                        <div class="category-widget">
+                            <ul>
+                                {% for categorie in categories %}
+                                <a href="{% url 'blog' %}?categorie={{categorie.id}}"><li>{{ categorie.nom }}</a><span>({{categorie.article_set.all.count}})</span></li></a>
+                                
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--<div class="sidebar-widget">
+                        <div class="image-widget">
+                            <a href="#"><img src="img/blog-3.jpg" alt="Image"></a>
+                        </div>
+                    </div>-->
+
+                    <!--<div class="sidebar-widget">
+                        <h2 class="widget-title">Tags</h2>
+                        <div class="tag-widget">
+                            {% for tag in tags %}
+                            <!--<a href="">National</a>
+                            <a href="">International</a>
+                            <a href="">Economics</a>
+                            <a href="">Politics</a>
+                            <a href="">Lifestyle</a>
+                            <a href="">Technology</a>
+                            <a href="">Trades</a>-->
+                            <!--{{ tag.nom }}
+                            {% endfor %}
+                        </div>
+                    </div>-->
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

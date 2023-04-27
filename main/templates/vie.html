@@ -1,0 +1,444 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class='p-5'>
+<style>
+    /*.container {
+        position: relative;
+        width: 50%;
+    }*/
+    
+    .image {
+        display: block;
+        width: 100%;
+        height: auto;
+        transition: .5s ease;
+    }
+    
+    .container:hover .image {
+        transform: rotate(360deg);
+    }
+    
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #4a4c70;
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        transition: .5s ease;
+    }
+    
+    .container:hover .overlay {
+        height: 50%;
+    }
+    
+    .textx {
+        color: white;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .gallery-item {
+        position: relative;
+        margin: 10px;
+        overflow: hidden;
+        width: 250px;
+        height: 250px;
+    }
+
+    .gallery-itemm {
+        position: relative;
+        
+        overflow: hidden;
+        min-width:400px;
+        height:90vh;
+        max-width:30vw;
+        
+    }
+
+    
+    
+    .gallery-item img,.gallery-itemm img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+    }
+    
+    .gallery-item:hover img,.gallery-itemm:hover img {
+        transform: scale(1.2);
+    }
+    
+    .gallery-item .overlayy,.gallery-itemm .overlayy {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        transition: opacity 0.5s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .gallery-item:hover .overlayy,.gallery-itemm:hover .overlayy {
+        opacity: 1;
+    }
+    
+    .gallery-item .overlayy p,.gallery-itemm .overlayy p {
+        color: white;
+        font-size: 24px;
+        text-align: center;
+    }
+</style>
+<h1 class="text-center font-weight-bold">Vie Quotidienne</h1>
+
+<!--<table>
+    <tr>
+        <td width="30%">
+            <div class="container">
+                <img width="100%" class="img-fluid " src="{% static 'img/velo.jpg' %} " alt="Avatar" class="image">
+                <div class="overlay">
+                    <div class="text">Faire les courses en triporteur !
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td width="30%">
+            <div class="container">
+                <img width="100%" class="img-fluid " src="{% static 'img/manger.jpg' %} " alt="Avatar" class="image">
+                <div class="overlay">
+                    <div class="text">Repas au restaurant en face de la maison</div>
+                </div>
+            </div>
+        </td>
+        <td width="30%">
+            <div class="container">
+                <img width="100%" class="img-fluid " src="{% static 'img/chat.jpg' %} " alt="Avatar" class="image">
+                <div class="overlay">
+                    <div class="text">Didjo apprend à faire de la moto</div>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>-->
+
+<div class='row mt-5 justify-content-between'>
+    <div class='gallery-itemm sss' style="">
+        <img class="img-fluid my-3 mx-auto "  src="{% static 'img/chat.jpg' %} " alt="Image ">
+        <div class='overlayy'>
+            <div class='textx'>Faire les courses en triporteur ! </div>
+        </div>
+    </div>
+
+    <div class='gallery-itemm sss' style="">
+        <img class="img-fluid my-3 mx-auto "  src="{% static 'img/manger.jpg' %} " alt="Image ">
+        <div class='overlayy'>
+            <div class='textx'>Repas au restaurant en face de la maison </div>
+        </div>
+    </div>
+
+    <div class='gallery-itemm sss' style="">
+        <img class="img-fluid my-3 mx-auto "  src="{% static 'img/velo.jpg' %} " alt="Image ">
+        <div class='overlayy'>
+            <div class='textx'>Didjo apprend à faire de la moto</div>
+        </div>
+    </div>
+
+    
+    <!--<img class="img-fluid my-3 mx-auto sss" style="min-width:300px;max-width:30vw;" src="{% static 'img/manger.jpg' %} " alt="Image ">
+    <img class="img-fluid my-3 mx-auto sss" style="min-width:300px;max-width:30vw;" src="{% static 'img/velo.jpg' %} " alt="Image ">-->
+
+</div>
+<br><br>
+<hr style="width: 30%;" color="black">
+<br><br>
+<div class="px-5">
+
+    <!--<table width="80%" align="center">
+        <tr>
+            <td align="center" style="padding-left: 50px; " align=" center ">
+                <img class="img-fluid " style="width: 100%;" src="{% static 'img/cours.jpg' %} " alt="Image ">
+            </td>
+            <td align="center" style="padding-left: 50px; ">
+                <p>
+                    AVST possède deux locaux à Lomé, tous deux situés dans un quartier calme de Lomé, avec toutes les commodités à disposition (supérettes, coiffeur, couturière, restaurants, bars…). <br> En moyenne, le nombre de personnes dans la maison
+                    varie entre 7 et 13. <br> Les bénévoles européens vivent directement avec les bénévoles togolais, qui se feront une joie de leur faire découvrir les recettes locales, les coutumes et tous les bons plans !
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" style="padding-left: 50px; ">
+                <p>
+                    D’ailleurs, ce sont les bénévoles locaux qui assurent tous les transports les jours de stage ainsi que les week-ends.
+                    <br> Vous l’aurez vu, tout se fait en moto, exception faite des trajets de plus d’une heure où nous privilégions le taxi-brousse pour plus de confort.
+                    <br> Un casque est recommandé pour plus de sécurité. il est très facile d’en acheter un sur place, ou de récupérer celui d’un ancien volontaire </p>
+            </td>
+            <td align="center" style="padding-left: 50px; " align=" center ">
+                <img class="img-fluid " style="width: 100%;" src="{% static 'img/cours.jpg' %} " alt="Image ">
+            </td>
+
+        </tr>
+    </table>-->
+
+
+
+    
+
+</div>
+
+<main id="main" style='' class='p-0'>
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <img src="{% static 'img/cours.jpg' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content align-items-center justify-content-center d-flex" >
+            <p class='text-center'>
+                AVST possède deux locaux à Lomé, tous deux situés dans un quartier calme de Lomé, avec toutes les commodités à disposition (supérettes, coiffeur, couturière, restaurants, bars…).
+                <br>
+                En moyenne, le nombre de personnes dans la maison varie entre 7 et 13. <br>Les bénévoles européens vivent directement avec les bénévoles togolais, qui se feront une joie de leur faire <br>découvrir les recettes locales, les coutumes et tous les bons plans ! 
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="about" class="about p-0 mt-5">
+        <div class="container p-0">
+          <div class="row p-0 justify-content-between">
+            <div class="col-lg-6 order-1 order-lg-2">
+                <img src="{% static 'img/moto.png' %}" class="img-fluid" alt="">
+              </div>
+              
+            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content align-items-center justify-content-center d-flex">
+              <p class='text-center '>
+                  D’ailleurs, ce sont les bénévoles locaux qui assurent tous les transports les jours de stage ainsi que les week-ends.
+                  <br> Vous l’aurez vu, tout se fait en moto, exception faite des trajets de plus d’une heure où nous privilégions le taxi-brousse pour plus de confort.
+                  <br> Un casque est recommandé pour plus de sécurité. il est très facile d’en acheter un sur place, ou de récupérer celui d’un ancien volontaire 
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+</main>
+
+
+<br>
+<hr style="width: 30%;">
+
+<h3 align="center">Sortir de sa zone de confort</h3>
+
+<!--<table>
+    <tr>
+        <td width=" 30% ">
+            <div class="container ">
+                <img width="100% " class="img-fluid " src="{% static 'img/pate.png' %} " alt="Avatar " class="image ">
+                <div class="overlay ">
+                    <div class="text ">Cuisine au réchaud
+
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td width="30% ">
+            <div class="container ">
+                <img width="100% " class="img-fluid " src="{% static 'img/lessive.png' %} " alt="Avatar " class="image ">
+                <div class="overlay ">
+                    <div class="text ">Lessive à la main
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td width="30% ">
+            <div class="container ">
+                <img width="100% " class="img-fluid " src="{% static 'img/douche.png' %} " alt="Avatar " class="image ">
+                <div class="overlay ">
+                    <div class="text ">Eau froide à la douche
+                    </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>-->
+
+<div class='row mt-5 justify-content-between'>
+    <img class="img-fluid my-3 mx-auto sss" style="min-width:350px;max-width:30vw;" src="{% static 'img/pate.png' %} " alt="Image ">
+    <img class="img-fluid my-3 mx-auto sss" style="min-width:350px;max-width:30vw;" src="{% static 'img/lessive.png' %} " alt="Image ">
+    <img class="img-fluid my-3 mx-auto sss" style="min-width:350px;max-width:30vw;" src="{% static 'img/douche.png' %} " alt="Image ">
+
+</div>
+
+<br><br>
+<hr style="width: 30%;">
+
+<h3 align="center " class='text-center'>Les animaux de la maison</h3>
+<br><br>
+<!--<table>
+    <tr>
+        <td width="30% ">
+            <div class="container ">
+                <img width="100% " class="img-fluid " src="{% static 'img/chiens.jpg' %} " alt="Avatar " class="image ">
+                <div class="overlay ">
+                    <div class="text ">Affi, le chien de garde
+
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td width="30% ">
+            <div class="container ">
+                <img width="100% " class="img-fluid " src="{% static 'img/chiens.jpg' %} " alt="Avatar " class="image ">
+                <div class="overlay ">
+                    <div class="text ">Kpala, la petite nouvelle
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td width="30% ">
+            <div class="container ">
+                <img width="100% " class="img-fluid " src="{% static 'img/chat.png' %} " alt="Avatar " class="image ">
+                <div class="overlay ">
+                    <div class="text ">Fiafito, voleur et contorsionniste</div>
+                </div>
+            </div>
+        </td>
+    </tr>
+
+</table>-->
+
+<div class='row mt-5 justify-content-between'>
+    
+
+    <img class="img-fluid my-3 mx-auto sss" style="min-width:350px;max-width:30vw;" src="{% static 'img/chienx.png' %} " alt="Image ">
+    <img class="img-fluid my-3 mx-auto sss" style="min-width:350px;max-width:30vw;" src="{% static 'img/chat.png' %} " alt="Image ">
+    <img class="img-fluid my-3 mx-auto sss" style="min-width:350px;max-width:30vw;" src="{% static 'img/chiens.jpg' %} " alt="Image ">
+
+</div>
+
+<br><br>
+<hr style="width: 30%;">
+<br><br>
+<h3 align="center">La nourriture locale</h3>
+<br><br>
+
+<div class="gallery">
+    <div class="gallery-item">
+        <img class="img-fluid " style="width: 100%;" src="{% static 'img/riz.jpg' %} " alt="Photo 1">
+        <div class="overlayy">
+            <p>Riz au gras
+            </p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img class="img-fluid " style="width: 100%;" src="{% static 'img/aloco.jpg' %} " alt="Photo 2">
+        <div class="overlayy">
+            <p>Aloco (bananes plantain)</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img class="img-fluid " style="width: 100%;" src="{% static 'img/couscous.jpg' %} " alt="Photo 3">
+        <div class="overlayy">
+            <p>Couscous au gras
+            </p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img class="img-fluid " style="width: 100%;" src="{% static 'img/koliko.jpg' %} " alt="Photo 4">
+        <div class="overlayy">
+            <p>Koliko (frites d’igname)</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img class="img-fluid " style="width: 100%;" src="{% static 'img/fufu.jpg' %} " alt="Photo 5">
+        <div class="overlayy">
+            <p>Pinon (farine de magnoc et sauce tomate)
+            </p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img class="img-fluid " style="width: 100%;" src="{% static 'img/pinon.png' %} " alt="Photo 6">
+        <div class="overlayy">
+            <p>Fufu (pâte à base d’igname ou de magnoc)
+            </p>
+        </div>
+    </div>
+</div><br>
+<h5 align="center">
+    La base de la nourriture togolaise est faite de féculents comme le riz, l’igname, le magnoc ou encore le couscous. La viande est aussi très présente avec quelques surprises comme la viande de chèvre. Le tout est généralement très épicé lorsqu’on mange
+    à l’extérieur, mais il existe des valeurs refuges comme la pizza, les burgers et les pâtes faciles à trouver.</h5>
+<br><br>
+
+<hr style="width: 30%;">
+<h3 align="center "> Les week-ends</h3><br><br>
+<div class="gallery">
+    <div class="gallery-item">
+        <img class="img-fluid " style="width: 100%;" src="{% static 'img/plage.png ' %} " alt="Photo 1">
+        <div class="overlayy">
+            <p>Marcello Beach – Lomé
+            </p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img class="img-fluid " style="width: 100%;" src="{% static 'img/pkalime.jpg ' %} " alt="Photo 2">
+        <div class="overlayy">
+            <p>Faille d’Aledjo – En route vers Kara</p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img class="img-fluid " style="width: 100%;" src="{% static 'img/kara.jpg ' %} " alt="Photo 3">
+        <div class="overlayy">
+            <p>L’amitié germano-togolaise – Togoville
+
+            </p>
+        </div>
+    </div><br><br>
+</div>
+<div class="gallery">
+    <div class="gallery-item">
+        <img class="img-fluid " style="width: 100%;" src="{% static 'img/minibus.png ' %} " alt="Photo 1">
+        <div class="overlayy">
+            <p>Le minibus pour 15 !
+            </p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img class="img-fluid " style="width: 100%;" src="{% static 'img/pirogue.png ' %} " alt="Photo 2">
+        <div class="overlayy">
+            <p>Traversée vers la presqu’île aux éléphants
+            </p>
+        </div>
+    </div>
+    <div class="gallery-item">
+        <img class="img-fluid " style="width: 100%;" src="{% static 'img/tele.png ' %} " alt="Photo 3">
+        <div class="overlayy">
+            <p>Soirée film à la maison
+
+            </p>
+        </div>
+    </div>
+</div>
+<h5 align="center">Il y a des week-end pour tous les goûts et pour tous les budgets, entre visiter Lomé et partir à l’aventure au nord du pays en bus !
+
+</h5>
+</div>
+{% endblock %}

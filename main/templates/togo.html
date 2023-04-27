@@ -1,0 +1,296 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class='p-5'>
+    <section class="">
+        <div class="row">
+          <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+            <div
+              class="bg-image hover-overlay ripple shadow-1-strong rounded"
+              data-ripple-color="light"
+            >
+              <img
+                src="{% static 'img/buffle.png' %}"
+                class="w-100"
+              />
+              <h5 class="text-center my-2">Buffle vues en Safari</h5>
+              <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal1">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+              </a>
+            </div>
+          </div>
+    
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <div
+              class="bg-image hover-overlay ripple shadow-1-strong rounded"
+              data-ripple-color="light"
+            >
+              <img
+                src="{% static 'img/vue.jpg' %}"
+                class="w-100"
+              />
+              <h5 class="text-center my-2">Vue du mont Kloto</h5>
+              <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal2">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+              </a>
+            </div>
+          </div>
+    
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <div
+              class="bg-image hover-overlay ripple shadow-1-strong rounded"
+              data-ripple-color="light"
+            >
+              <img
+                src="{% static 'img/art.jpg' %}"
+                class="w-100"
+              />
+              <h5 class="text-center my-2">Technique batik</h5>
+              <a href="#!" data-mdb-toggle="modal" data-mdb-target="#exampleModal3">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section: Images -->
+    
+      <!-- Section: Modals -->
+      <section class="">
+        <!-- Modal 1 -->
+        <div
+          class="modal fade"
+          id="exampleModal1"
+          tabindex="-1"
+          aria-labelledby="exampleModal1Label"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/A3PDXmYoF5U"
+                  title="YouTube video"
+                  allowfullscreen
+                ></iframe>
+              </div>
+    
+              <div class="text-center py-3">
+                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal 2 -->
+        <div
+          class="modal fade"
+          id="exampleModal2"
+          tabindex="-1"
+          aria-labelledby="exampleModal2Label"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/wTcNtgA6gHs"
+                  title="YouTube video"
+                  allowfullscreen
+                ></iframe>
+              </div>
+    
+              <div class="text-center py-3">
+                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal 3 -->
+        <div
+          class="modal fade"
+          id="exampleModal3"
+          tabindex="-1"
+          aria-labelledby="exampleModal3Label"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/vlDzYIIOYmM"
+                  title="YouTube video"
+                  allowfullscreen
+                ></iframe>
+              </div>
+    
+              <div class="text-center py-3">
+                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section: Modals -->
+    </section>
+
+
+    <h1 class="mt-5 mb-2 font-weight-bold p-0">Informations Clees</h1>
+
+
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+              <img src="{% static 'img/afrique.png' %}"  style="width:400px;height:400px;" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+                <h5>Capital : Lome</h5>
+                <br>
+                <h5>Langue : Francais,Ewe,Kabye</h5>
+                <br>
+                <h5>Monnaie : Francs CFA</h5>
+                <br>
+                <h5>SMIC : 55 euro/mois</h5>
+                <br>
+                <h5>Population : 7 millions</h5>
+                <br>
+                <h5>Superficies : 56 785 km<sup>2</sup></h5>
+                <br>
+                <h5>Fuseau Horaire : GMT</h5>
+                <br>
+                <h5>Date d'independance : 27 Avril 1960</h5>
+                <br>
+
+            </div>
+          </div>
+  
+        </div>
+    </section>
+
+      <h1 class="font-weight-bold my-5">Presentation du pays</h1>
+
+      <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+              <img src="{% static 'img/lake.jpg' %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+                <h5>Le Togo est un pays d’Afrique de l’Ouest voisin du Ghana, du Bénin et du Burkina Faso, qui dispose d’une côte sur le golfe de Guinée.<br>
+                   C’est un pays tout en longueur, avec 45 km de plages bordées de cocotiers. Son territoire s’étend au nord sur plus de 600 km.
+                     
+                </h5>
+                
+                
+
+            </div>
+          </div>
+  
+        </div>
+    </section>
+
+
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+              <img src="{% static 'img/case.jpg' %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+                <h5>Le Togo tire son nom de Togodo (ce qui signifie en langue Ewé ville « au-delà du fleuve »). 
+                   A l’arrivée de l’explorateur allemand Natchigal le 4 Juillet 1884, ce dernier a rencontré 
+                   le roi MLAPA III de Togoville, représentant l’autorité religieuse du Togo et qui donna son 
+                   
+                   Son nom au pays, afin de signer le 5 Juillet 1884 le traité de protectorat. Au premier contact, 
+                   les allemands avaient du mal à prononcer le mot « Togodo » d’où l’abréviation Togo pour désigner 
+                   tout le territoire qu’ils allaient occuper plus tard.
+                   <br><br>
+                    A sa naissance, « le Togo allemand » avait 
+                   une superficie de 90.400 Km2 et englobait la volta qui se trouve actuellement au Ghana.
+                     
+                </h5>
+                
+                
+
+            </div>
+          </div>
+  
+        </div>
+    </section>
+
+
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+              <img src="{% static 'img/crane.jpeg' %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+                <h5>
+                  Le Togo propose tout au long de ses 650 km un très beau parcours à la rencontre des nombreuses ethnies qui le composent et de leurs traditions particulières. Des populations Ewé et Guins au Sud, Ana et Tem dans la région Centrale, en passant par les Bassar, Kabyés et Tamberma de la région de la Kara et aux Moba-Gurma de l’extrême Nord, ce sont autant de peuples restés profondément ancrés dans leurs traditions que le Togo offre à découvrir.
+                  <br><br>
+Les châteaux Tamberma sont reconnus comme patrimoine architectural universel et inscrits sur la liste du patrimoine mondial de l’UNESCO sous le nom de KOUTAMMAKOU, pays des Batammariba. La diversité culturelle fait du Togo une destination de premier choix pour tous ceux et celles qui souhaitent rencontrer le caractère authentique de l’Afrique de l’Ouest.
+                  <br><br>
+Il existe près de 50 dialectes africains mais le français, que parle la plupart des togolais, est la langue officielle. Beaucoup parlent également l’anglais et un bon nombre l’allemand.
+                     
+                </h5>
+                
+                
+
+            </div>
+          </div>
+  
+        </div>
+    </section>
+
+    <h1 class="font-weight-bold">Contexte Politique</h1>
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+              <img src="{% static 'img/faure.jpeg' %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+                <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+                     sequi vel quisquam odio. Sunt, animi voluptatibus. Molestias vitae 
+                     accusantium alias, nam consequuntur labore? Aspernatur inventore molestias 
+                     at ab consequatur aut!
+                     <br>
+                     sequi vel quisquam odio. Sunt, animi voluptatibus. Molestias vitae 
+                     accusantium alias, nam consequuntur labore? Aspernatur inventore molestias 
+                     at ab consequatur aut!
+                     <br>
+                     sequi vel quisquam odio. Sunt, animi voluptatibus. Molestias vitae 
+                     accusantium alias, nam consequuntur labore? Aspernatur inventore molestias 
+                     at ab consequatur aut!
+                     <br><br>
+                     sequi vel quisquam odio. Sunt, animi voluptatibus. Molestias vitae 
+                     accusantium alias, nam consequuntur labore? Aspernatur inventore molestias 
+                     at ab consequatur aut!
+                     
+                </h5>
+                
+                
+
+            </div>
+          </div>
+  
+        </div>
+    </section>
+
+
+</div>
+
+{% endblock %}

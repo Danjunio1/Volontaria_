@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="blog">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Notre Blog</p>
+            <h2>Articles provenant de notre blog</h2>
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'create-blog' %}">
+                <h2 style='text-decoration:underline'>Creer un Article</h2>
+            </a>
+            {% endif %}
+        </div>
+        <div class="row">
+            {% for article in page_obj %}
+            <div class="col-lg-4">
+                
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="/media/{{ article.poster }}" alt="Image" style="width:100%;height:300px;" class='image-fluid;' stye="background-size:cover">
+                    </div>
+                    <div class="blog-text">
+                        <h3 class='pl-2'><a >{{ article.titre }}</a></h3>
+                        {% if request.user.is_authenticated %}
+                        <h3 class='pl-2'><a href="{% url 'modifier-blog' article.id %}">Modifier</a></h3>
+                        {% endif %}
+                        <p class='pl-2'>
+                            
+                        </p>
+                    </div>
+                    <div class="blog-meta">
+                        <p><i class="fa fa-user"></i><a href="">{{article.auteur}}</a></p>
+                        <p><i class="fa fa-comments"></i><a href="">{{ article.comment_set.all.count }} Comentaires</a></p>
+                    </div>
+                    <div class=" mx-auto p-2  d-flex align-items-center justify-content-center mt-2 " style="display:flex;align-items:center;justify-content:center;border-radius:5px;height:50px;width:180px;background:rgb(32,33,43);display:flex;align-items:center;justify-content:center; " >
+                        <div class=" mx-auto  d-flex align-items-center justify-content-center" style="display:flex;align-items:center;justify-content:center;">
+                            <a  href="{% url 'single-blog' article.id %}" style="text-decoration:none;"><p style="color:rgb(255, 255, 255);margin:auto">Voire Plus</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!--<div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="img/blog-2.jpg" alt="Image">
+                    </div>
+                    <div class="blog-text">
+                        <h3><a href="#">Lorem ipsum dolor sit</a></h3>
+                        <p>
+                            Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                        </p>
+                    </div>
+                    <div class="blog-meta">
+                        <p><i class="fa fa-user"></i><a href="">Admin</a></p>
+                        <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="img/blog-3.jpg" alt="Image">
+                    </div>
+                    <div class="blog-text">
+                        <h3><a href="#">Lorem ipsum dolor sit</a></h3>
+                        <p>
+                            Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                        </p>
+                    </div>
+                    <div class="blog-meta">
+                        <p><i class="fa fa-user"></i><a href="">Admin</a></p>
+                        <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="img/blog-1.jpg" alt="Image">
+                    </div>
+                    <div class="blog-text">
+                        <h3><a href="#">Lorem ipsum dolor sit</a></h3>
+                        <p>
+                            Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                        </p>
+                    </div>
+                    <div class="blog-meta">
+                        <p><i class="fa fa-user"></i><a href="">Admin</a></p>
+                        <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="img/blog-2.jpg" alt="Image">
+                    </div>
+                    <div class="blog-text">
+                        <h3><a href="#">Lorem ipsum dolor sit</a></h3>
+                        <p>
+                            Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                        </p>
+                    </div>
+                    <div class="blog-meta">
+                        <p><i class="fa fa-user"></i><a href="">Admin</a></p>
+                        <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="img/blog-3.jpg" alt="Image">
+                    </div>
+                    <div class="blog-text">
+                        <h3><a href="#">Lorem ipsum dolor sit</a></h3>
+                        <p>
+                            Lorem ipsum dolor sit amet elit. Neca pretim miura bitur facili ornare velit non vulpte liqum metus tortor
+                        </p>
+                    </div>
+                    <div class="blog-meta">
+                        <p><i class="fa fa-user"></i><a href="">Admin</a></p>
+                        <p><i class="fa fa-comments"></i><a href="">15 Comments</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <div class="row">
+            <div class="col-12">
+                <ul class="pagination justify-content-center align-center mx-auto" style='align-self:center;border:0px solid red;margin:0 auto;'>
+                    {% if page_obj.has_previous %}
+                    <li class="page-item "><a class="page-link" href="?page=1">Premiere Page</a></li>
+                    <li class="page-item "><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Precedent</a></li>
+                    {% endif %}
+                    <li class="page-item"><a class="page-link" href="#">
+                        Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}.
+                    </a></li>
+                    {% if page_obj.has_next %}
+                    <li class="page-item "><a class="page-link" href="?page={{ page_obj.next_page_number }}">Suivant</a></li>
+                    <li class="page-item "><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Derniere Page</a></li>
+                    {% endif %}
+                </ul> 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

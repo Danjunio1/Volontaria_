@@ -1,0 +1,47 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<div class="px-5">
+    <h1 class="mb-5 text-center "><strong>Comment preparer son voyage</strong></h1>
+    <h3 class="mb-3">Les frais à prévoir :</h3>
+
+    <ul>
+        <li>100 € de frais d’inscription (frais administratifs, taxi pour l’arrivée à l’aéroport,…)</li>
+        <li>290€ de loyer et de charges par mois car AVST n’est pas encore propriétaire de ses locaux</li>
+        <li>Entre 50 et 150€ de VISA selon la durée du séjour</li>
+        <li>200€ environ de médicaments, par exemple anti-paludisme, anti diarrhéique, anti nausée (possibilité de se les faire prescrire par un médecin)</li>
+        <li>Environ 600 à 1000€ de billet d’avion</li>
+        <li>100€ pour les vaccins</li>
+
+    </ul>
+    <br>
+    <h3> Les démarches à faire :</h3>
+    <br>
+    <div align="center" class="voyage_container">
+        <img class=" img-fluid " src="{% static 'img/visa.png' %} " alt="Image ">
+        <img class=" img-fluid " src="{% static 'img/vaccin.png' %} " alt="Image ">
+        <img class=" img-fluid " src="{% static 'img/assurance.png' %} " alt="Image ">
+        <img class=" img-fluid " src="{% static 'img/budget.png' %} " alt="Image ">
+    </div>
+    <br><br>
+    <h3>A mettre dans la valise :</h3>
+
+    <table>
+        <tr>
+            <td style="padding-left: 50px; " align=" center ">
+                <img class="img-fluid " src="{% static 'img/sac.png' %} " alt="Image ">
+            </td>
+            <td style="padding-left: 50px; ">
+                <li>Produit anti moustique insecte écran </li>
+                <li>Médicaments anti paludéen, diarrhée, maux de tête, fièvre, vomissement, pansements, antiseptique. </li>
+                <li>K-way</li>
+                <li>Baskets fermées, tongs ou sandales</li>
+                <li>Pantalon léger/long et t-shirt manche longue pour les moustiques du soir</li>
+                <li>Drap housse + drap de couverture pour lit 1 place </li>
+                <li>Maillot de bain </li>
+                <li>Tenues adaptés à votre lieu de stage </li>
+                <li>Un morceau de fromage pour vous rappeler le pays</li>
+            </td>
+        </tr>
+    </table>
+
+</div>{% endblock %}

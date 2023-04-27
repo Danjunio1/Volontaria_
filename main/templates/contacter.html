@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="contact">
+    <div class="container">
+        <div class="section-header text-center">
+            <p> Entrer En Contact
+            </p>
+            <h2> Envoyer nous un mail
+            </h2>
+        </div>
+        <div class="contact-img">
+            <img class="img-fluid" src="{% static 'img/carousel-2.jpg' %}" alt="Image">
+        </div>
+        <div class="contact-form">
+            <form method="post" action=".">
+                {% csrf_token %} {{ form.as_p }}
+                <div id="cesok"></div>
+                <div>
+                    <button onclick="EnvoiReussi()" class="btn btn-custom " type="submit " id="sendMessageButton "> Envoyer</button>
+                </div>
+
+            </form>
+            <script>
+                function EnvoiReussi() {
+                    // Récupérer les valeurs des champs du formulaire
+                    var nom = document.getElementById('name').value;
+                    var prenom = document.getElementById('email').value;
+                    var email = document.getElementById('subject').value;
+                    var email = document.getElementById('message').value;
+
+                    // Vérifier que tous les champs sont remplis
+                    if (nom === '' || prenom === '' || email === '') {
+                        //
+                    } else {
+                        alert("Merci d'avoir envoyer un mail, Nous vous répondrons le plus vite possible")
+
+                    }
+                }
+            </script>
+        </div>
+    </div>
+</div>
+{% endblock %}

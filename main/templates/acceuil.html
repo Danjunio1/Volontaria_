@@ -1,0 +1,534 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<!-- slider_area_end -->
+
+<div class="w-100 d-flex p-1 mt-0  align-items-center justify-content-center" style="background:rgb(32,33,43);flex-wrap:wrap">
+    <div class="d-flex flex-column align-items-center mx-5 py-4" style="max-width:370px;">
+        <!--<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-globe-americas" viewBox="0 0 16 16">
+            <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0ZM2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484-.08.08-.162.158-.242.234-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"/>
+          </svg>-->
+        <h1 class="text-white pt-4">Une association fondée par des togolais …</h1>
+        <h4 style='color:rgb(117, 116, 116)'>Découvrez l’histoire de la rencontre entre Polycarpe AMEKOTOU et Kossi Woboube AZIATO</h4>
+    </div>
+
+    <div class="d-flex flex-column align-items-center mx-5 py-4" style="max-width:370px;">
+        <!--<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-person-fill" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+          </svg>-->
+        <h1 class="text-white pt-4">… au service des togolais …</h1>
+        <h4 class='' style='color:rgb(117, 116, 116)'>Découvrez nos actions sur le terrain, dans le domaine de la protection et la sensibilisation environnementale et de l’aide aux populations démunies</h4>
+    </div>
+
+    <div class="d-flex flex-column align-items-center mx-1 py-1" style="max-width:370px;">
+        <!--<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="white" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16">
+            <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a9.84 9.84 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733.058.119.103.242.138.363.077.27.113.567.113.856 0 .289-.036.586-.113.856-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.163 3.163 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.82 4.82 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"/>
+          </svg>-->
+        <h1 class="text-white pt-4">…avec l’aide des stagiaires internationaux !</h1>
+        <h4 class='text-red-400' style='color:rgb(117, 116, 116)'>Nous accueillons chaque année une centaine de stagiaires de tout niveau et dans tous les domaines. Venez découvrir nos offres !</h4>
+    </div>
+
+
+</div>
+
+<div class="p-5">
+    <h1 class="mt-5 pl-2" style="color:rgb(32,33,43);text-align:left;">BLOG</h1>
+    <div class="d-flex justify-content-between mt-3" style="flex-wrap:wrap;margin-bottom:10px;">
+        
+
+        {% for article in articles %}
+        <div style="min-width:200px;width:350px;" class=" pt-5 d-flex flex-wrap">
+            <!--<h3 class="lll">Une association fondée par des togolais …</h3>
+            <p>
+                Découvrez l’histoire de la rencontre entre Polycarpe AMEKOTOU et Kossi Woboube AZIATO.
+            </p>
+            <div class=" p-2  d-flex align-items-center justify-content-center mt-2 " style="border-radius:5px;height:50px;width:180px;background:rgb(32,33,43);display:flex;align-items:center;justify-content:center; " >
+                <div class="  d-lg-block d-flex align-items-center justify-content-center" style="display:flex;align-items:center;justify-content:center;height:30px;">
+                    <a  href="#" style="text-decoration:none;"><p style="color:rgb(255, 255, 255);">Lire Plus</p></a>
+                </div>
+            </div>-->
+            <div class="" style="">
+                <p>{{ article.created|date:'d M Y' }}</p>
+            </div>
+
+            <div style="">
+                <h1>{{ article.titre }}</h1>
+                <p>
+                    {% autoescape off %}
+                    {{ article.contenu|slice:"255" }}...
+                    {% endautoescape  %}
+                </p>
+                <div class=" p-2  d-flex align-items-center justify-content-center mt-2 " style="border-radius:5px;height:50px;width:180px;background:rgb(32,33,43);display:flex;align-items:center;justify-content:center; " >
+                    <div class="  d-lg-block d-flex align-items-center justify-content-center" style="display:flex;align-items:center;justify-content:center;height:30px;">
+                        <a  href="{% url 'single-blog' article.id %}" style="text-decoration:none;"><p style="color:rgb(255, 255, 255);margin:auto">Lire Plus</p></a>
+                    </div>
+                </div>
+
+
+            </div>
+    
+        </div>
+        {% endfor %}
+       
+    
+        <!--<div style="min-width:200px;width:350px;" class="mx-4 pt-5">
+            <h1 class="lll">… au service des togolais …</h1>
+            <p>
+                Découvrez nos actions sur le terrain, dans le domaine de la protection et la sensibilisation environnementale et de l’aide aux populations démunies.
+            </p>
+            <div class=" p-2  d-flex align-items-center justify-content-center mt-2 " style="border-radius:5px;height:50px;width:180px;background:rgb(32,33,43);display:flex;align-items:center;justify-content:center; " >
+                <div class="  d-lg-block d-flex align-items-center justify-content-center" style="display:flex;align-items:center;justify-content:center;height:30px;">
+                    <a  href="#" style="text-decoration:none;"><p style="color:rgb(255, 255, 255);">Lire Plus</p></a>
+                </div>
+            </div>
+    
+        </div>
+    
+        <div style="min-width:200px;width:350px;" class=" pt-5">
+            <h3 class="lll">…avec l’aide des stagiaires internationaux !</h3>
+            <p>
+                Nous accueillons chaque année une centaine de stagiaires de tout niveau et dans tous les domaines. Venez découvrir nos offres !.
+            </p>
+            <div class=" p-2  d-flex align-items-center justify-content-center mt-2 " style="border-radius:5px;height:50px;width:180px;background:rgb(32,33,43);display:flex;align-items:center;justify-content:center; " >
+                <div class="  d-lg-block d-flex align-items-center justify-content-center" style="display:flex;align-items:center;justify-content:center;height:30px;">
+                    <a  href="#" style="text-decoration:none;"><p style="color:rgb(255, 255, 255);">Lire Plus</p></a>
+                </div>
+            </div>
+    
+        </div>-->
+    </div>
+</div>
+
+
+<div class="p-5">
+    <!-- Gallery -->
+    <h1 class="text-center my-5 font-weight-bold ">Gallerie Photos</h1>
+<div class="lightbox">
+<div class="row">
+    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+      <img
+        
+        src="{% static 'img/cascade.jpeg' %}"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Boat on Calm Water"
+      />
+      <!--src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"-->
+      <h3>Cascade de Womé</h3>
+      <p class="" style="display:absolute">Kpalimé,Togo</p>
+  
+      <img
+
+       
+        src="{% static 'img/rue.png' %}"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Wintry Mountain Landscape"
+      />
+       <!--src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"-->
+      <h3>Voyage vers Kara</h3>
+      <p class="" style="display:absolute">Atakpamé,Togo</p>
+    </div>
+  
+    <div class="col-lg-4 mb-4 mb-lg-0">
+      <a>
+        <img
+            src="{% static 'img/faille.png' %}"
+            class="w-100 shadow-1-strong rounded mb-4"
+            alt="Mountains in the Clouds"
+        />
+        <!--src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"-->
+        <h3>Grand marché</h3>
+        <p class="" style="display:absolute">Lomé,Togo</p>
+      </a>
+        <a href="#">
+            <img
+                src="{% static 'img/crane.jpeg' %}"
+                class="w-100 shadow-1-strong rounded mb-4"
+                alt="Boat on Calm Water"
+            />
+            <!--src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"-->
+            <h3>Marché des fétiches</h3>
+            <p class="" style="display:absolute">Kpalimé,Togo</p>
+        </a>
+    </div>
+
+    
+  
+    <div class="col-lg-4 mb-4 mb-lg-0">
+        <a href="#">
+        <img
+            src="{% static 'img/association.jpg' %}"
+            class="w-100 shadow-1-strong rounded mb-4"
+            alt="Waves at Sea"
+        />
+        <!--src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"-->
+        <h3>Photo de groupe</h3>
+        <p class="" style="display:absolute">Lomé,Togo</p>
+        </a>
+  
+        <a href="#">
+            <img
+                src="{% static 'img/pkalime.jpg' %}"
+                class="w-100 shadow-1-strong rounded mb-4"
+                alt="Yosemite National Park"
+                data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Slides/4.webp"
+            />
+            <!--src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"-->
+            <h3>Faille d'Aledjo</h3>
+            <p class="" style="display:absolute">Alédjo,Togo</p>
+        </a>
+    </div>
+
+
+
+
+
+      <!--<div class="col-lg-4 mb-4 mb-lg-0">
+        <a>
+          <img
+              src="{% static 'img/photo.jpg' %}"
+              class="w-100 shadow-1-strong rounded mb-4"
+              alt="Mountains in the Clouds"
+          />
+          <!--src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"-->
+          <!--<h3>Vue du Mont Agou</h3>
+          <p class="" style="display:absolute">Kpalime,Region des Plateau</p>
+        </a>
+          <a href="#">
+              <img
+                  src="{% static 'img/plage.png' %}"
+                  class="w-100 shadow-1-strong rounded mb-4"
+                  alt="Boat on Calm Water"
+              />
+              <!--src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"-->
+              <!--<h3>Vue du Mont Agou</h3>
+              <p class="" style="display:absolute">Kpalime,Region des Plateau</p>
+          </a>
+      </div>-->
+
+      
+
+  </div>
+  <!-- Gallery -->
+</div>
+</div>
+<!--<div class=" mx-auto p-2  d-flex align-items-center justify-content-center mt-2 " style="display:flex;align-items:center;justify-content:center;border-radius:5px;height:50px;width:180px;background:rgb(32,33,43);display:flex;align-items:center;justify-content:center; " >
+    <div class=" mx-auto  d-flex align-items-center justify-content-center" style="display:flex;align-items:center;justify-content:center;">
+        <a  href="#" style="text-decoration:none;"><p style="color:rgb(255, 255, 255);margin:auto">Voire Plus</p></a>
+    </div>
+</div>-->
+
+
+
+
+
+<!--<div data-scroll-index='1' class="make_donation_area section_padding mt-5" >
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section_title text-center mb-55" style="text-decoration: underline;">
+                    <a href=""><h1><span>FAIRE UN DON</span></h1></a>
+                </div>
+            </div>
+        </div>-->
+        <!--<div class="row justify-content-center">
+            <div class="col-lg-6">
+                <form action="#" class="donation_form">
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <div class="single_amount">
+                                <div class="input_field">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="basic-addon1">$</span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="40,200" aria-label="Username" aria-describedby="basic-addon1">
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="single_amount">
+                               <div class="fixed_donat d-flex align-items-center justify-content-between">
+                                   <div class="select_prise">
+                                       <h4>Select Amount:</h4>
+                                   </div>
+                                    <div class="single_doonate"> 
+                                        <input type="radio" id="blns_1" name="radio-group" checked>
+                                        <label for="blns_1">10</label>
+                                    </div>
+                                    <div class="single_doonate"> 
+                                        <input type="radio" id="blns_2" name="radio-group" checked>
+                                        <label for="blns_2">30</label>
+                                    </div>
+                                    <div class="single_doonate"> 
+                                        <input type="radio" id="Other" name="radio-group" checked>
+                                        <label for="Other">Other</label>
+                                    </div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>-->
+
+<div class=" w-full p-5 mt-5" style="background:rgb(32,33,43);">
+    <style>
+        @media only screen and (max-width: 600px) {
+            .xxx {
+              /*background-color: red;*/
+              /*width:80px;*/
+            }
+            .res{
+                width:80px;
+                height:80px;
+            }
+          }
+    </style>
+
+    <div class="pt-5 d-flex flex-wrap justify-content-around xxx px-5 ">
+        <div style="max-width:400px;">
+            <div class="p-2  d-flex align-items-center justify-content-center mt-2 " style="display:flex;align-items:center;justify-content:center;border-radius:5px;height:50px;width:280px;background:white;display:flex;align-items:center;justify-content:center; " >
+                <div class=" mx-auto  d-flex align-items-center justify-content-center" style="display:flex;align-items:center;justify-content:center;">
+                    <a  href="#" style="text-decoration:none;"><p style="color:background:rgb(32,33,43);;margin:auto">TOUS SAVOIR SUR NOS PROJETS</p></a>
+                </div>
+            </div>
+            <h1 class="text-white py-5">Chantier <br>à Kpala – Avenyaké</h1>
+            <p>Grâce à la cagnotte lancée en début novembre 2022, 
+                non seulement l’eau est enfin parvenue au village, 
+                mais en plus nous entamons la construction d’un réservoir 
+                muni d’une pompe pour en faciliter l’accès !
+            </p>
+        </div>
+        <div style="border:0px solid red;">
+            <style>
+                .res{
+                    /*height:400px;border-radius:30px;width:200px;height:0px;*/
+                    width: 400px;
+                    border-radius: 30px;
+                    
+                }
+                @media only screen and (max-width: 600px) {
+                    .xxx {
+                     
+                      /*width:80px;*/
+                    }
+                    .res{
+                        min-width:80vw;
+                        height:500px;
+                        /*display:none;*/
+                        border-radius: 30px;
+                        
+                    }
+                  }
+            </style>
+            <img
+                src="{% static 'img/eau.png' %}"
+                class="res"
+                style=""
+            />
+
+
+        </div>
+    </div>
+
+
+    <div class="pt-5 mt-5 d-flex flex-wrap justify-content-around xxx px-5">
+
+        <div style="">
+
+            <style>
+                .res{
+                    /*height:400px;border-radius:30px;width:200px;height:0px;*/
+                    width: 400px;
+                    
+                }
+                @media only screen and (max-width: 600px) {
+                    .xxx {
+                     
+                      /*width:80px;*/
+                    }
+                    .res{
+                        width:70vw;
+                        height:500px;
+                        /*display:none;*/
+                        border-radius: 30px;
+                        
+                    }
+                  }
+            </style>
+   
+            <img
+                src="{% static 'img/piler.jpg' %}"
+                class="res"
+                alt="Yosemite National Park"
+                style=""
+            />
+
+
+        </div>
+
+        <div style="max-width:400px;">
+            <div class="p-2 mt-5 d-flex align-items-center justify-content-center mt-2 " style="display:flex;align-items:center;justify-content:center;border-radius:5px;height:50px;width:280px;background:white;display:flex;align-items:center;justify-content:center; " >
+                <div class=" mx-auto  d-flex align-items-center justify-content-center" style="display:flex;align-items:center;justify-content:center;">
+                    <a  href="#" style="text-decoration:none;"><p style="color:background:rgb(32,33,43);;margin:auto">TOUS SAVOIR SUR NOS PROJETS</p></a>
+                </div>
+            </div>
+            <h1 class="text-white py-5">Immersion totale dans la culture togolaise</h1>
+            <p>Au delà d’un stage ou d’un simple bénévolat, vous vivrez au rythme du Togo, à l’aide des bénévoles locaux toujours impatients de vous apprendre la langue locale ou bien la cuisine !
+            </p>
+        </div>
+        
+    </div>
+
+
+</div>
+        
+
+        <!--<div style="height:80px;"></div>
+
+
+        <div class="mt-5" style="">
+            <h1 class="mb-2" style="">QUI SOMMES NOUS ?</h1>
+            <div style="height:10px;"></div>
+            <p>
+                Association des Volontaires Solidaires du Togo est une association de volontaires acceptant de mettre leurs forces ensemble, connaissances et temps au service du développement et de l’intégrité générale de la société.<br>
+                AVS-TOGO est une Organisation Non Gouvernementale et humanitaire à but non lucratif basant ses activités sur la coopération et la solidarité réciproques. Ses membres sont des jeunes étudiants, élèves, artisans qui ont en commun la motivation, la vocation et la détermination à bâtir un monde socialement efficace, plus viable, avec un environnement plus sein.<br>
+                AVS-TOGO s’engage aux côtés de l’Etat togolais et d’autres Organisations nationales et internationales afin d’apporter sa contribution dans les domaines : l’éducation, la santé, l’environnement et la culture (promouvoir la valeur culturelle de l’Afrique en générale, et en particulier celle du Togo) à la constitution de ce grand édifice qu’est le développement de notre pays, le Togo.<br>
+                AVS-TOGO amènera la jeunesse à positiver leurs pensées et à mettre toutes leurs énergies dans la construction d’un monde absolu.<br>
+                AVS-TOGO œuvre dans les domaines sociaux, l’éducation, alphabétisation et la formation de la jeunesse, la protection de l’environnement, la promotion d’une agriculture écologique, la construction et la rénovation d’édifices d’intérêt public et communautaire à savoir, dispensaires, bibliothèques, écoles, toilettes publics.<br>
+                La préoccupation majeure de AVS-TOGO est la promotion d’une forme de vie meilleure fondée sur la solidarité mutuelle pour une plus grande justice sociale. La santé des populations et l’épanouissement de la jeunesse sans distinction de sexe ni de race occupent une place de choix dans nos programmes. AVS-TOGO est une association qui participe activement à l’amélioration des conditions de vie des plus démunis au Togo. Elle s’appuie sur une démarche de développement durable en sensibilisant le plus possible la population locale.<br>
+            </p>
+
+            <div style="height:20px;"></div>
+
+            <h3>BUT</h3>
+
+            <p>
+                Association des Volontaires Solidaires du Togo à pour but de défendre le droit à l’éducation des enfant, d’améliorer les conditions sanitaires des populations rurales,de préserver l’environnement et de promouvoir la culture togolaise.
+            </p>
+
+
+            <div style="height:130px;"></div>
+
+            <h2 class="m" style="text-align:center;">NOTRE EQUIPE BÉNÉVOLE</h2>
+            <div style="height:10px;"></div>
+
+            <div class="team">
+                <div class="container">
+                    <div class="section-header text-center">
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-img" style="">
+                                    <img src="static/img/team-1.jpg" alt="Team Image">
+                                </div>
+                                <div class="team-text">
+                                    <h2>James Bénito’o TCHOWOU</h2>
+                                    <p>Presidwent Fondateur</p>
+                                    <div class="team-social">
+                                        <a href=""><i class="fab fa-twitter"></i></a>
+                                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                        <a href=""><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-img">
+                                    <img src="static/img/team-2.jpg" alt="Team Image">
+                                </div>
+                                <div class="team-text">
+                                    <h2>Lyana DEVA</h2>
+                                    <p>PRESIDENTE  EN FRANCE</p>
+                                    <div class="team-social">
+                                        <a href=""><i class="fab fa-twitter"></i></a>
+                                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                        <a href=""><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-img">
+                                    <img src="static/img/team-3.jpg" alt="Team Image">
+                                </div>
+                                <div class="team-text">
+                                    <h2>Thomas Olsen</h2>
+                                    <p>Chef Advisor</p>
+                                    <div class="team-social">
+                                        <a href=""><i class="fab fa-twitter"></i></a>
+                                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                        <a href=""><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="team-item">
+                                <div class="team-img">
+                                    <img src="static/img/team-4.jpg" alt="Team Image">
+                                </div>
+                                <div class="team-text">
+                                    <h2>James Alien</h2>
+                                    <p>TRÉSORIER AU TOGO</p>
+                                    <div class="team-social">
+                                        <a href=""><i class="fab fa-twitter"></i></a>
+                                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                        <a href=""><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div style="height:80px;"></div>
+
+        <div>
+            <h1>MOYENS D’ACTIONS</h1>
+            <h2>Pour la réalisation de nos objectifs AVS-TOGO entend :</h2>
+            <p>
+                <li>organiser des campagnes de sensibilisation</li>
+                <li>publier un bulletin d’information</li>
+                <li>organiser des camps chantiers et stages de formation</li>
+                <li>coopérer avec des organisations poursuivant des buts et objectifs similaires au Togo, en Afrique et dans le monde.</li>
+                <li>Organiser des activités éducatives partout ou besoin sera.</li>
+                <li>Faire des œuvres humanitaires et solidaires</li>
+            </p>
+        </div>
+
+        <div style="height:40px;"></div>
+
+        <div>
+            
+            <h2>OBJECTIFS :</h2>
+            <p>Pour atteindre notre but Association des Volontaires Solidaires du Togo se fixe pour objectifs de </p>
+            <p>
+                <li>organiser des campagnes de sensibilisation</li>
+                <li>publier un bulletin d’information</li>
+                <li>organiser des camps chantiers et stages de formation</li>
+                <li>coopérer avec des organisations poursuivant des buts et objectifs similaires au Togo, en Afrique et dans le monde.</li>
+                <li>Organiser des activités éducatives partout ou besoin sera.</li>
+                <li>Faire des œuvres humanitaires et solidaires</li>
+            </p>
+        </div>
+
+
+
+    </div>-->
+
+
+{% endblock %}
